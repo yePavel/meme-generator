@@ -25,3 +25,7 @@ body {
     display: block;
     width: 100%;
 }
+
+.icon {
+    width: 30px;
+}
