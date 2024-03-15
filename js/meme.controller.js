@@ -5,17 +5,17 @@ function renderMeme() {
     img.src = gMeme.url
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        drawText(gMeme, 150, 50)
+        drawText(150, 50)
     }
 }
 
-function drawText(gMeme, x, y) {
+function drawText(x, y) {
     const { lines } = gMeme
-    gCtx.lineWidth = 1
+    gCtx.lineWidth = 0.5
 
     gCtx.fillStyle = lines[0].color
 
-    gCtx.font = '30px Arial'
+    gCtx.font = `${lines[0].size}px Ariel`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
