@@ -5,20 +5,45 @@ function renderMeme() {
     img.src = gMeme.url
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        drawText(150, 50)
+        gMeme.lines.forEach(line => {
+            drawText(line, line.currPosX, line.currPosY)
+        });
     }
 }
 
-function drawText(x, y) {
-    const { lines } = gMeme
+function drawText(lines, posX, posY) {
     gCtx.lineWidth = 0.5
 
-    gCtx.fillStyle = lines[0].color
+    gCtx.fillStyle = lines.color
 
-    gCtx.font = `${lines[0].size}px Ariel`
+    gCtx.font = `${lines.size}px Ariel`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
-
-    gCtx.fillText(lines[0].txt, x, y)
-    gCtx.strokeText(lines[0].txt, x, y)
+    gCtx.fillText(lines.txt, posX, posY)
+    gCtx.strokeText(lines.txt, posX, posY)
+    addLineBorder()
 }
+
+function addLineBorder() {
+    var { lines } = gMeme
+    var { selectedLineIdx: idx } = gMeme
+    gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 2
+    gCtx.textBaseline = "top"
+    gCtx.strokeRect(lines[idx].currPosX - 100,
+        lines[idx].currPosY - 25,
+        lines[idx].currPosX + 50,
+        lines[idx].currPosY)
+}
+
+function onAddLine() {
+    addLine()
+}
+
+function onSwitchLine() {
+    switchLine()
+    renderMeme()
+}
+
+
+
