@@ -20,30 +20,22 @@ function drawText(lines, posX, posY) {
     gCtx.fillStyle = lines.color
 
     gCtx.font = `${lines.size}px Ariel`
-    gCtx.textAlign = 'center'
-    gCtx.textBaseline = 'middle'
+    gCtx.textAlign = 'left'
+    gCtx.textBaseline = 'top'
     gCtx.fillText(lines.txt, posX, posY)
     gCtx.strokeText(lines.txt, posX, posY)
     addLineBorder()
 }
 
 function addLineBorder() {
-    var { lines } = gMeme
-    var { selectedLineIdx: idx } = gMeme
-    if (!lines[idx].txt.length) return
-
-    gCtx.beginPath()
-    gCtx.moveTo(lines[idx].currPosX - lines[idx].size * 2 - lines[idx].txt.length * 3, lines[idx].currPosY - lines[idx].size)
-
-    gCtx.lineTo(lines[idx].currPosX + lines[idx].size * 2 + lines[idx].txt.length * 3, lines[idx].currPosY - lines[idx].size)
-    gCtx.lineTo(lines[idx].currPosX + lines[idx].size * 2 + lines[idx].txt.length * 3, lines[idx].currPosY + lines[idx].size)
-    gCtx.lineTo(lines[idx].currPosX - lines[idx].size * 2 - lines[idx].txt.length * 3, lines[idx].currPosY + lines[idx].size)
-
-    gCtx.closePath()
-
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = lines.color
-    gCtx.stroke()
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    var textWidth = gCtx.measureText(lines[idx].txt).width;
+    var lineHeight = lines[idx].size * 1.2;
+    lines[idx].txtWidth = textWidth
+    lines[idx].txtHight = lineHeight
+    gCtx.strokeRect(lines[idx].currPosX, lines[idx].currPosY, textWidth, lineHeight);
+    renderMeme()
 }
 
 function onAddLine() {

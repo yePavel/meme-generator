@@ -26,30 +26,43 @@
             <button class="more-btn">More</button>
         </div>
         <div class="gallery-container"></div>
-        <div class="editor-container flex space-between align-center">
+
+        <div class="editor-container">
             <canvas width="300" height="300"></canvas>
             <div class="editor-setup">
                 <section class="text-control">
-                    <input oninput="setLineTxt()" type="search" class="txt-change">
-                    <button><img class="icon" src="icons/up-down-arrows.png" onclick="onSwitchLine()"></button>
-                    <button><img class="icon" src="icons/add.png" onclick="onAddLine()"></button>
-                    <button><img class="icon" src="icons/trash.png"></button>
+                    <input oninput="setLineTxt()" type="search text-search" class="txt-change">
+                    <div class="text-control-btns">
+                        <button><img class="icon" src="icons/up-down-arrows.png" onclick="onSwitchLine()"></button>
+                        <button><img class="icon" src="icons/add.png" onclick="onAddLine()"></button>
+                        <button><img class="icon" src="icons/trash.png"></button>
+                    </div>
                 </section>
+
                 <section class="text-style">
                     <button><img class="icon" src="icons/increase font - icon.png" onclick="setLineSize(2)"></button>
                     <button><img class="icon" src="icons/decrease font - icon.png" onclick="setLineSize(-2)"></button>
                     <button><img class="icon" src="icons/align-to-left.png"></button>
                     <button><img class="icon" src="icons/center-text-alignment.png"></button>
                     <button><img class="icon" src="icons/align-to-right.png"></button>
-                    <button><img class="icon" src=""></button>
-                    <button><img class="icon" src=""></button>
+                    <select name="fonts" id="fonts">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                    <button><img class="icon" src="icons/text-outline-color.png"></button>
                     <button><input oninput="setLineColor()" type="color" class="txt-color"></button>
                 </section>
                 <section class="imojis"></section>
-                <button>Share</button>
-                <button><a href="#" onclick="downloadImg(this)" download="my-img.jpg">download</a></button>
+                <div class="action-btns">
+                    <button class="share-btn">Share</button>
+                    <button class="download-btn"><a href="#" onclick="downloadImg(this)"
+                            download="my-img.jpg">Download</a></button>
+                </div>
             </div>
         </div>
+
     </main>
     <footer class="main-footer flex space-between align-center">
         <small class="footer-rights">@ all rights reserved to pavel.y 2024</small>

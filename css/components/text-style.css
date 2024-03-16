@@ -1,0 +1,30 @@
+.text-style {
+    display: grid;
+    grid-template-columns: minmax(60px, 1fr) minmax(60px, 1fr) minmax(60px, 1fr) minmax(60px, 1fr) minmax(60px, 1fr);
+
+    min-width: 300px;
+    background-color: #19A59F;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.text-style button {
+    width: fit-content;
+    margin: 10px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 0px 0px #3E7D7A;
+}
+
+.text-style select {
+    grid-column: 1/4;
+    padding: 5px 20px;
+    margin: 10px;
+    background: #EBEEF3;
+    border: none;
+    border-radius: 15px;
+}

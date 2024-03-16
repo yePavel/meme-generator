@@ -14,8 +14,8 @@ function getMeme() {
                 color: 'red',
                 currPosX: 150,
                 currPosY: 50,
-                // pos,
-                isDrag: false
+                isDrag: false,
+                textAlign: 'center'
             },
         ]
     }
@@ -34,7 +34,9 @@ function addLine() {
         size: 25,
         color: 'red',
         currPosX: 150,
-        currPosY: 120
+        currPosY: 120,
+        txtWidth: 0,
+        txtHeight: 0
     })
     gMeme.selectedLineIdx = (gMeme.lines.length - 1)
     renderMeme()
@@ -78,13 +80,13 @@ function setCircleDrag(isDrag) {
 function isCircleClicked(clickedPos) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
-
-    return ((clickedPos.x >= (lines[idx].currPosX - lines[idx].size * 2 - lines[idx].txt.length * 3)) &&
-        (clickedPos.x <= (lines[idx].currPosX + lines[idx].size * 2 + lines[idx].txt.length * 3)) &&
-        (clickedPos.y >= (lines[idx].currPosY - lines[idx].size)) &&
-        (clickedPos.y <= (lines[idx].currPosY + lines[idx].size)))
+    return (
+        (clickedPos.x >= lines[idx].currPosX) &&
+        (clickedPos.x <= (lines[idx].txtWidth + lines[idx].currPosX)) &&
+        (clickedPos.y >= lines[idx].currPosY) &&
+        (clickedPos.y <= (lines[idx].txtHight + lines[idx].currPosY))
+    )
 }
-
 
 function moveCircle(dx, dy) {
     const { lines } = gMeme
