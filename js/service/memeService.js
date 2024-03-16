@@ -78,15 +78,11 @@ function setCircleDrag(isDrag) {
 function isCircleClicked(clickedPos) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
-    // Calc the distance between two dots
 
-    const distance =
-        Math.sqrt((lines[idx].currPosX - clickedPos.x) ** 2 + (lines[idx].currPosY - clickedPos.y) ** 2)
-
-    console.log('distance:', distance)
-
-    //If its smaller then the radius of the circle we are inside
-    return distance <= lines[idx].size
+    return ((clickedPos.x >= (lines[idx].currPosX - lines[idx].size * 2 - lines[idx].txt.length * 3)) &&
+        (clickedPos.x <= (lines[idx].currPosX + lines[idx].size * 2 + lines[idx].txt.length * 3)) &&
+        (clickedPos.y >= (lines[idx].currPosY - lines[idx].size)) &&
+        (clickedPos.y <= (lines[idx].currPosY + lines[idx].size)))
 }
 
 

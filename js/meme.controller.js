@@ -30,16 +30,18 @@ function drawText(lines, posX, posY) {
 function addLineBorder() {
     var { lines } = gMeme
     var { selectedLineIdx: idx } = gMeme
-    gCtx.beginPath()
-    gCtx.moveTo(lines[idx].currPosX - lines[idx].size * 3, lines[idx].currPosY - lines[idx].size)
+    if (!lines[idx].txt.length) return
 
-    gCtx.lineTo(lines[idx].currPosX + lines[idx].size * 3, lines[idx].currPosY - lines[idx].size)
-    gCtx.lineTo(lines[idx].currPosX + lines[idx].size * 3, lines[idx].currPosY + lines[idx].size)
-    gCtx.lineTo(lines[idx].currPosX - lines[idx].size * 3, lines[idx].currPosY + lines[idx].size)
+    gCtx.beginPath()
+    gCtx.moveTo(lines[idx].currPosX - lines[idx].size * 2 - lines[idx].txt.length * 3, lines[idx].currPosY - lines[idx].size)
+
+    gCtx.lineTo(lines[idx].currPosX + lines[idx].size * 2 + lines[idx].txt.length * 3, lines[idx].currPosY - lines[idx].size)
+    gCtx.lineTo(lines[idx].currPosX + lines[idx].size * 2 + lines[idx].txt.length * 3, lines[idx].currPosY + lines[idx].size)
+    gCtx.lineTo(lines[idx].currPosX - lines[idx].size * 2 - lines[idx].txt.length * 3, lines[idx].currPosY + lines[idx].size)
 
     gCtx.closePath()
 
-    gCtx.lineWidth = 1
+    gCtx.lineWidth = 2
     gCtx.strokeStyle = lines.color
     gCtx.stroke()
 }
@@ -72,9 +74,7 @@ function addTouchListeners() {
 
 function onDown(ev) {
     gStartPos = getEvPos(ev)
-    console.log('gStartPos:', gStartPos)
     if (!isCircleClicked(gStartPos)) return
-
     setCircleDrag(true)
     document.body.style.cursor = 'grabbing'
 }
@@ -95,7 +95,7 @@ function onMove(ev) {
 
 function onUp() {
     setCircleDrag(false)
-    document.body.style.cursor = 'grab'
+    document.body.style.cursor = 'default'
 }
 
 function getEvPos(ev) {
