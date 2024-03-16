@@ -1,0 +1,43 @@
+.main-header {
+    height: 73px;
+    background: linear-gradient(90deg in oklab, #0F9BB4, #30BB72);
+    border-radius: 50px;
+    margin: 10px 5px;
+}
+
+.logo {
+    font-size: 1.375em;
+    margin-left: 3em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.main-nav-list li {
+    justify-content: center;
+    border-radius: 50px;
+
+    padding: .5em 1em;
+    margin-right: 20px;
+
+    cursor: pointer;
+}
+
+.main-nav-list li:hover {
+    background-color: #FFFFFF;
+}
+
+.main-nav-list li a:hover {
+    background: linear-gradient(to right, #0F9BB4, #30BB72);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.main-nav-list li:last-child {
+    margin-right: 12em;
+}
+
+.main-nav-list li a {
+    text-decoration: none;
+    font-size: 1.1375em;
+    color: #FFFFFF;
+}

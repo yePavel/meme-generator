@@ -1,0 +1,32 @@
+.main-search {
+    padding: 20px 10px;
+}
+
+.main-search .search {
+    width: 540px;
+    padding: 10px 20px;
+    background: #22252C;
+    border-radius: 50px;
+
+}
+
+.search-by-click {
+    margin-left: 26px;
+    padding: 10px 20px;
+    border-radius: 50px;
+
+    background-color: #87898D;
+    color: #F2F2F3;
+}
+
+.more-btn {
+    width: 95px;
+    margin-left: 10px;
+
+    border-radius: 20px;
+    border: none;
+
+    background: linear-gradient(90deg in oklab, #0F9BB4, #30BB72);
+    color: #F2F2F3;
+    cursor: pointer;
+}
