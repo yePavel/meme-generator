@@ -86,6 +86,7 @@ function isCircleClicked(clickedPos) {
             (clickedPos.x <= (lines.txtWidth + lines.currPosX)) &&
             (clickedPos.y >= lines.currPosY) &&
             (clickedPos.y <= (lines.txtHeight + lines.currPosY))) {
+            changeTextDisplay()
             onSwitchLine('mouseClick', idx)
         }
     });

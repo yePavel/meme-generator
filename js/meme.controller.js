@@ -106,5 +106,13 @@ function getEvPos(ev) {
     }
 }
 
+function changeTextDisplay() {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    document.querySelector('.txt-change').value = lines[idx].txt
+}
+
+
+
 
 
