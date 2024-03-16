@@ -10,10 +10,12 @@ function getMeme() {
         lines: [
             {
                 txt: 'I Love Falafel',
-                size: 35,
+                size: 25,
                 color: 'red',
                 currPosX: 150,
-                currPosY: 50
+                currPosY: 50,
+                // pos,
+                isDrag: false
             },
         ]
     }
@@ -29,7 +31,7 @@ function addLine() {
     const { lines } = gMeme
     lines.push({
         txt: 'Insert text',
-        size: 35,
+        size: 25,
         color: 'red',
         currPosX: 150,
         currPosY: 120
@@ -68,4 +70,29 @@ function downloadImg(elLink) {
     elLink.href = imgContent
 }
 
+function setCircleDrag(isDrag) {
+    var { lines } = gMeme
+    lines[gMeme.selectedLineIdx].isDrag = isDrag
+}
 
+function isCircleClicked(clickedPos) {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    // Calc the distance between two dots
+
+    const distance =
+        Math.sqrt((lines[idx].currPosX - clickedPos.x) ** 2 + (lines[idx].currPosY - clickedPos.y) ** 2)
+
+    console.log('distance:', distance)
+
+    //If its smaller then the radius of the circle we are inside
+    return distance <= lines[idx].size
+}
+
+
+function moveCircle(dx, dy) {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    lines[idx].currPosX += dx
+    lines[idx].currPosY += dy
+}
