@@ -14,16 +14,16 @@ function renderMeme() {
     }
 }
 
-function drawText(lines, posX, posY) {
+function drawText(line, posX, posY) {
     gCtx.lineWidth = 0.5
 
-    gCtx.fillStyle = lines.color
+    gCtx.fillStyle = line.color
 
-    gCtx.font = `${lines.size}px Ariel`
+    gCtx.font = `${line.size}px Ariel`
     gCtx.textAlign = 'left'
     gCtx.textBaseline = 'top'
-    gCtx.fillText(lines.txt, posX, posY)
-    gCtx.strokeText(lines.txt, posX, posY)
+    gCtx.fillText(line.txt, posX, posY)
+    gCtx.strokeText(line.txt, posX, posY)
     addLineBorder()
 }
 
@@ -33,17 +33,17 @@ function addLineBorder() {
     var textWidth = gCtx.measureText(lines[idx].txt).width;
     var lineHeight = lines[idx].size * 1.2;
     lines[idx].txtWidth = textWidth
-    lines[idx].txtHight = lineHeight
+
+    lines[idx].txtHeight = lineHeight
     gCtx.strokeRect(lines[idx].currPosX, lines[idx].currPosY, textWidth, lineHeight);
-    renderMeme()
 }
 
 function onAddLine() {
     addLine()
 }
 
-function onSwitchLine() {
-    switchLine()
+function onSwitchLine(type, idx) {
+    switchLine(type, idx)
     renderMeme()
 }
 

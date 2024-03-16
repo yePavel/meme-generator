@@ -21,10 +21,11 @@ function getMeme() {
     }
 }
 
-function switchLine() {
-    if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
-    else gMeme.selectedLineIdx += 1
-    addLineBorder()
+function switchLine(type, idx) {
+    if (type === 'clickBtn') {
+        if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
+        else gMeme.selectedLineIdx += 1
+    } else gMeme.selectedLineIdx = idx
 }
 
 function addLine() {
@@ -80,12 +81,18 @@ function setCircleDrag(isDrag) {
 function isCircleClicked(clickedPos) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
-    return (
-        (clickedPos.x >= lines[idx].currPosX) &&
+    gMeme.lines.forEach((lines, idx) => {
+        if ((clickedPos.x >= lines.currPosX) &&
+            (clickedPos.x <= (lines.txtWidth + lines.currPosX)) &&
+            (clickedPos.y >= lines.currPosY) &&
+            (clickedPos.y <= (lines.txtHeight + lines.currPosY))) {
+            onSwitchLine('mouseClick', idx)
+        }
+    });
+    return ((clickedPos.x >= lines[idx].currPosX) &&
         (clickedPos.x <= (lines[idx].txtWidth + lines[idx].currPosX)) &&
         (clickedPos.y >= lines[idx].currPosY) &&
-        (clickedPos.y <= (lines[idx].txtHight + lines[idx].currPosY))
-    )
+        (clickedPos.y <= (lines[idx].txtHeight + lines[idx].currPosY)))
 }
 
 function moveCircle(dx, dy) {
