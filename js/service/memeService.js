@@ -15,7 +15,10 @@ function getMeme() {
                 currPosX: 150,
                 currPosY: 50,
                 isDrag: false,
-                textAlign: 'center'
+                txtWidth: 0,
+                txtHeight: 0,
+                font: 'Ariel'
+                // textAlign: 'center'
             },
         ]
     }
@@ -36,8 +39,10 @@ function addLine() {
         color: '#FF8C00',
         currPosX: 150,
         currPosY: 120,
+        isDrag: false,
         txtWidth: 0,
-        txtHeight: 0
+        txtHeight: 0,
+        font: 'Ariel'
     })
     gMeme.selectedLineIdx = (gMeme.lines.length - 1)
     renderMeme()
@@ -73,12 +78,12 @@ function downloadImg(elLink) {
     elLink.href = imgContent
 }
 
-function setCircleDrag(isDrag) {
+function setTxtFrameDrag(isDrag) {
     var { lines } = gMeme
     lines[gMeme.selectedLineIdx].isDrag = isDrag
 }
 
-function isCircleClicked(clickedPos) {
+function isTxtFrameClicked(clickedPos) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
     gMeme.lines.forEach((lines, idx) => {
@@ -96,22 +101,17 @@ function isCircleClicked(clickedPos) {
         (clickedPos.y <= (lines[idx].txtHeight + lines[idx].currPosY)))
 }
 
-function moveCircle(dx, dy) {
+function moveTxtFrame(dx, dy) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
     lines[idx].currPosX += dx
     lines[idx].currPosY += dy
 }
 
-function keyCotroll() {
-    switch (expression) {
-        case x:
-            // code block
-            break;
-        case y:
-            // code block
-            break;
-        default:
-        // code block
-    }
+function fontChange() {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    const currFont = document.getElementById('fonts').value
+    lines[idx].font = currFont
+    renderMeme()
 }

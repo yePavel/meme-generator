@@ -12,14 +12,15 @@ function renderMeme() {
             drawText(line, line.currPosX, line.currPosY)
         });
     }
+    onTextChange()
 }
 
 function drawText(line, posX, posY) {
     gCtx.lineWidth = 0.5
 
     gCtx.fillStyle = line.color
-
-    gCtx.font = `${line.size}px Ariel`
+    console.log('line.font:',)
+    gCtx.font = `${line.size}px ${line.font}`
     gCtx.textAlign = 'left'
     gCtx.textBaseline = 'top'
     gCtx.fillText(line.txt, posX, posY)
@@ -30,7 +31,7 @@ function drawText(line, posX, posY) {
 function addLineBorder() {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
-    var textWidth = gCtx.measureText(lines[idx].txt).width;
+    var textWidth = gCtx.measureText(lines[idx].txt).width + 3;
     var lineHeight = lines[idx].size * 1.2;
     lines[idx].txtWidth = textWidth
 
@@ -68,8 +69,8 @@ function addTouchListeners() {
 
 function onDown(ev) {
     gStartPos = getEvPos(ev)
-    if (!isCircleClicked(gStartPos)) return
-    setCircleDrag(true)
+    if (!isTxtFrameClicked(gStartPos)) return
+    setTxtFrameDrag(true)
     document.body.style.cursor = 'grabbing'
 }
 
@@ -82,13 +83,13 @@ function onMove(ev) {
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
 
-    moveCircle(dx, dy)
+    moveTxtFrame(dx, dy)
     gStartPos = pos
     renderMeme()
 }
 
 function onUp() {
-    setCircleDrag(false)
+    setTxtFrameDrag(false)
     document.body.style.cursor = 'default'
 }
 
@@ -146,6 +147,10 @@ function onMoveText(ev) {
     }
 }
 
+function onFontChange() {
+    fontChange()
+    renderMeme()
+}
 
 
 
