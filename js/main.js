@@ -9,7 +9,6 @@ function onInit() {
     gCtx = gCanvas.getContext('2d')
     gMeme = getMeme()
     addListeners()
-    // const center = { x: gMeme.lines[0].currPosX, y: gMeme.lines[0].currPosY }
 }
 
 function displayEditor() {
