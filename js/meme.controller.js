@@ -53,9 +53,11 @@ function addListeners() {
 }
 
 function addMouseListeners() {
+    const elBody = document.querySelector('body')
     gCanvas.addEventListener('mousedown', onDown)
     gCanvas.addEventListener('mousemove', onMove)
     gCanvas.addEventListener('mouseup', onUp)
+    elBody.addEventListener('keydown', onMoveText)
 }
 
 function addTouchListeners() {
@@ -74,7 +76,7 @@ function onDown(ev) {
 function onMove(ev) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
-    if (!lines[idx].isDrag) return
+    if (lines.length === 0 || !lines[idx].isDrag) return
 
     const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
@@ -106,12 +108,43 @@ function getEvPos(ev) {
     }
 }
 
-function changeTextDisplay() {
+function onTextChange() {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
     document.querySelector('.txt-change').value = lines[idx].txt
+    document.querySelector('.txt-color').value = lines[idx].color
 }
 
+function onDeleteLine() {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    lines.splice(idx, 1)
+    renderMeme()
+}
+
+function onMoveText(ev) {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+
+    switch (ev.code) {
+        case 'ArrowDown':
+            lines[idx].currPosY += 5
+            renderMeme()
+            break;
+        case 'ArrowUp':
+            lines[idx].currPosY -= 5
+            renderMeme()
+            break;
+        case 'ArrowLeft':
+            lines[idx].currPosX -= 5
+            renderMeme()
+            break;
+        case 'ArrowRight':
+            lines[idx].currPosX += 5
+            renderMeme()
+            break;
+    }
+}
 
 
 

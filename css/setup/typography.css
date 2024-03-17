@@ -1,0 +1,29 @@
+@font-face {
+    font-family: bungee;
+    src: url(/fonts/Bungee_Inline/BungeeInline-Regular.ttf);
+}
+
+@font-face {
+    font-family: ceviche;
+    src: url(/fonts/Ceviche_One/CevicheOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: merienda;
+    src: url(/fonts/Merienda/Merienda-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: mulish;
+    src: url(/fonts/Mulish/Mulish-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: syne;
+    src: url(/fonts/Syne_Tactile/SyneTactile-Regular.ttf);
+}
+
+@font-face {
+    font-family: vollkorn;
+    src: url(/fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
+}

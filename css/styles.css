@@ -1,11 +1,17 @@
+/* SETUP */
+@import url(setup/typography.css);
+/* BASIC */
 @import url(basics.css/helpers.css);
 @import url(basics.css/base.css);
+
 /* HEADER */
 @import url(components/main-header.css);
+
 /* MAIN */
 @import url(main.css);
 @import url(components/main-search.css);
 @import url(components/gallery-container.css);
+
 /* EDITOR */
 @import url(components/editor-container.css);
 @import url(components/text-control.css);

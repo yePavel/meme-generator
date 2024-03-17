@@ -11,7 +11,7 @@ function getMeme() {
             {
                 txt: 'I Love Falafel',
                 size: 25,
-                color: 'red',
+                color: '#FF8C00',
                 currPosX: 150,
                 currPosY: 50,
                 isDrag: false,
@@ -33,7 +33,7 @@ function addLine() {
     lines.push({
         txt: 'Insert text',
         size: 25,
-        color: 'red',
+        color: '#FF8C00',
         currPosX: 150,
         currPosY: 120,
         txtWidth: 0,
@@ -86,7 +86,7 @@ function isCircleClicked(clickedPos) {
             (clickedPos.x <= (lines.txtWidth + lines.currPosX)) &&
             (clickedPos.y >= lines.currPosY) &&
             (clickedPos.y <= (lines.txtHeight + lines.currPosY))) {
-            changeTextDisplay()
+            onTextChange()
             onSwitchLine('mouseClick', idx)
         }
     });
@@ -101,4 +101,17 @@ function moveCircle(dx, dy) {
     const { selectedLineIdx: idx } = gMeme
     lines[idx].currPosX += dx
     lines[idx].currPosY += dy
+}
+
+function keyCotroll() {
+    switch (expression) {
+        case x:
+            // code block
+            break;
+        case y:
+            // code block
+            break;
+        default:
+        // code block
+    }
 }
