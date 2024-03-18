@@ -43,9 +43,10 @@
                 <section class="text-style">
                     <button><img class="icon" src="icons/increase font - icon.png" onclick="setLineSize(2)"></button>
                     <button><img class="icon" src="icons/decrease font - icon.png" onclick="setLineSize(-2)"></button>
-                    <button><img class="icon" src="icons/align-to-left.png"></button>
-                    <button><img class="icon" src="icons/center-text-alignment.png"></button>
-                    <button><img class="icon" src="icons/align-to-right.png"></button>
+                    <button onclick="onTextAlignment('right')"><img class="icon" src="icons/align-to-left.png"></button>
+                    <button onclick="onTextAlignment('center')"><img class="icon"
+                            src="icons/center-text-alignment.png"></button>
+                    <button onclick="onTextAlignment('left')"><img class="icon" src="icons/align-to-right.png"></button>
                     <select onchange="onFontChange()" name="fonts" id="fonts">
                         <option value="ariel">Ariel</option>
                         <option value="bungee">Bungee</option>
@@ -68,13 +69,14 @@
 
     </main>
     <footer class="main-footer flex space-between align-center">
-        <small class="footer-rights">@ all rights reserved to pavel.y 2024</small>
+        <small class="footer-rights">@ all rights reserved to Pavel.y 2024</small>
     </footer>
     <script src="js/service/memeService.js"></script>
     <script src="js/service/galleryService.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.2/fabric.min.js"></script>
 </body>
 
 </html>

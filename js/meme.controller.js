@@ -12,16 +12,13 @@ function renderMeme() {
             drawText(line, line.currPosX, line.currPosY)
         });
     }
-    onTextChange()
+    renderEditorMenu()
 }
 
 function drawText(line, posX, posY) {
     gCtx.lineWidth = 0.5
-
     gCtx.fillStyle = line.color
-    console.log('line.font:',)
     gCtx.font = `${line.size}px ${line.font}`
-    gCtx.textAlign = 'left'
     gCtx.textBaseline = 'top'
     gCtx.fillText(line.txt, posX, posY)
     gCtx.strokeText(line.txt, posX, posY)
@@ -31,10 +28,11 @@ function drawText(line, posX, posY) {
 function addLineBorder() {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
+    if (!lines[idx]) return
     var textWidth = gCtx.measureText(lines[idx].txt).width + 3;
     var lineHeight = lines[idx].size * 1.2;
-    lines[idx].txtWidth = textWidth
 
+    lines[idx].txtWidth = textWidth
     lines[idx].txtHeight = lineHeight
     gCtx.strokeRect(lines[idx].currPosX, lines[idx].currPosY, textWidth, lineHeight);
 }
@@ -77,7 +75,7 @@ function onDown(ev) {
 function onMove(ev) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
-    if (lines.length === 0 || !lines[idx].isDrag) return
+    if (!lines[idx] || !lines[idx].isDrag) return
 
     const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
@@ -109,9 +107,10 @@ function getEvPos(ev) {
     }
 }
 
-function onTextChange() {
+function renderEditorMenu() {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
+    if (!lines[idx]) return
     document.querySelector('.txt-change').value = lines[idx].txt
     document.querySelector('.txt-color').value = lines[idx].color
 }
@@ -148,9 +147,24 @@ function onMoveText(ev) {
 }
 
 function onFontChange() {
+    renderMeme()
     fontChange()
     renderMeme()
 }
 
+function setLineTxt() {
+    const txtInput = document.querySelector('.txt-change').value
+    var { lines } = gMeme
+    lines[gMeme.selectedLineIdx].txt = txtInput
+    renderMeme()
+}
+
+function onTextAlignment(dir) {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    lines[idx].textAlign = dir
+    alignText()
+    renderMeme()
+}
 
 

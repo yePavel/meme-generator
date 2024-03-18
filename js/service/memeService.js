@@ -9,16 +9,15 @@ function getMeme() {
         url: '',
         lines: [
             {
-                txt: 'I Love Falafel',
+                txt: 'Insert text',
                 size: 25,
                 color: '#FF8C00',
                 currPosX: 150,
-                currPosY: 50,
+                currPosY: 20,
                 isDrag: false,
                 txtWidth: 0,
                 txtHeight: 0,
-                font: 'Ariel'
-                // textAlign: 'center'
+                font: 'Ariel',
             },
         ]
     }
@@ -38,20 +37,13 @@ function addLine() {
         size: 25,
         color: '#FF8C00',
         currPosX: 150,
-        currPosY: 120,
+        currPosY: 100,
         isDrag: false,
         txtWidth: 0,
         txtHeight: 0,
-        font: 'Ariel'
+        font: 'Ariel',
     })
     gMeme.selectedLineIdx = (gMeme.lines.length - 1)
-    renderMeme()
-}
-
-function setLineTxt() {
-    const txtInput = document.querySelector('.txt-change').value
-    var { lines } = gMeme
-    lines[gMeme.selectedLineIdx].txt = txtInput
     renderMeme()
 }
 
@@ -91,7 +83,7 @@ function isTxtFrameClicked(clickedPos) {
             (clickedPos.x <= (lines.txtWidth + lines.currPosX)) &&
             (clickedPos.y >= lines.currPosY) &&
             (clickedPos.y <= (lines.txtHeight + lines.currPosY))) {
-            onTextChange()
+            renderEditorMenu()
             onSwitchLine('mouseClick', idx)
         }
     });
@@ -113,5 +105,15 @@ function fontChange() {
     const { selectedLineIdx: idx } = gMeme
     const currFont = document.getElementById('fonts').value
     lines[idx].font = currFont
-    renderMeme()
+}
+
+function alignText() {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    if (lines[idx].textAlign === 'center') {
+        lines[idx].currPosX = (gCanvas.width / 2) - (lines[idx].txtWidth / 2)
+    }
+    else if (lines[idx].textAlign === 'right')
+        lines[idx].currPosX = 5
+    else lines[idx].currPosX = (gCanvas.width - lines[idx].txtWidth)
 }
