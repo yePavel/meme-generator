@@ -8,12 +8,11 @@
         display: flex;
     }
 
-    .gallery-container {
+    .editor-container {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
+    .editor-setup {
+        justify-self: start;
+    }
 }
-
-
-
-/* LARGE */
