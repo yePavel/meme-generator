@@ -12,8 +12,9 @@ function getMeme() {
         lines: [
             {
                 txt: 'Insert text',
-                size: 25,
+                size: 35,
                 color: '#FF8C00',
+                outlineColor: '#000000',
                 currPosX: 150,
                 currPosY: 20,
                 isDrag: false,
@@ -30,8 +31,9 @@ function addLine() {
     const { lines } = gMeme
     lines.push({
         txt: 'Insert text',
-        size: 25,
+        size: 35,
         color: '#FF8C00',
+        outlineColor: '#000000',
         currPosX: 150,
         currPosY: 100,
         isDrag: false,
@@ -159,4 +161,9 @@ function onSave() {
     saveToStorage('canvas', gSavedImg)
 }
 
-
+function setOutLineColor() {
+    const colorInput = document.querySelector('.txt-outline').value
+    var { lines } = gMeme
+    lines[gMeme.selectedLineIdx].outlineColor = colorInput
+    renderMeme()
+}

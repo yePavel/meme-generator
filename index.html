@@ -27,7 +27,21 @@
 
     <main class="main-content">
         <div class="main-search">
-            <input class="search" type="search" placeholder="Search">
+            <input oninput="renderGallery()" list="search-datalist" class="search" type="search" placeholder="Search">
+            <datalist id="search-datalist">
+                <option value="funny">
+                <option value="tramp">
+                <option value="famous">
+                <option value="sweet">
+                <option value="dog">
+                <option value="kiss">
+                <option value="cat">
+                <option value="kids">
+                <option value="hat">
+                <option value="obama">
+                <option value="tv-show">
+                <option value="putin">
+            </datalist>
             <div class="search-by-click flex align-center">bla1 bla2 bla3 bla4</div>
             <button class="more-btn">More</button>
         </div>
@@ -61,7 +75,7 @@
                         <option value="syne">Syne</option>
                         <option value="vollkorn">Vollkorn</option>
                     </select>
-                    <button><img class="icon" src="icons/text-outline-color.png"></button>
+                    <button><input oninput="setOutLineColor()" type="color" class="txt-outline"></button>
                     <button><input oninput="setLineColor()" type="color" class="txt-color"></button>
                 </section>
                 <section class="imojis"></section>

@@ -20,6 +20,7 @@ function drawText(line, posX, posY, currIdx) {
     gCtx.fillStyle = line.color
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.textBaseline = 'top'
+    gCtx.strokeStyle = line.outlineColor
     gCtx.fillText(line.txt, posX, posY)
     gCtx.strokeText(line.txt, posX, posY)
     addLineBorder(currIdx)
@@ -116,6 +117,8 @@ function renderEditorMenu() {
     if (!lines[idx]) return
     document.querySelector('.txt-change').value = lines[idx].txt
     document.querySelector('.txt-color').value = lines[idx].color
+    document.querySelector('.txt-outline').value = lines[idx].outlineColor
+
 }
 
 function onDeleteLine() {

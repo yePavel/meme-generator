@@ -1,11 +1,6 @@
 'use strict'
 
 const IMG_KEY = 'currImg'
-// const SEARCH_WORD = {
-//     funny: 6,
-//     tramp: 3,
-//     famous: 2,
-// }
 
 var gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['funny', 'tramp', 'famous'] },
@@ -31,5 +26,19 @@ var gImgs = [
 function findImgById(imgId) {
     const currImg = gImgs.find(img => img.id === imgId)
     return currImg
+}
+
+function getImgs() {
+    var imgs = searchByDataList()
+    if (imgs.length > 0) return imgs
+    else return gImgs
+}
+
+function searchByDataList() {
+    const elSearchValue = document.querySelector('.search').value
+    var filterdImgs = gImgs.filter(img => {
+        return img.keywords.some(word => word.includes(`${elSearchValue}`))
+    })
+    return filterdImgs
 }
 
