@@ -16,3 +16,6 @@
 @import url(components/editor-container.css);
 @import url(components/text-control.css);
 @import url(components/text-style.css);
+
+/* MEDIA QUERIES */
+@import url(setup/mq.css);

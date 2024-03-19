@@ -1,0 +1,19 @@
+/* MEDIUM */
+@media (min-width:640px) {
+    .toggle-menu-btn {
+        display: none;
+    }
+
+    .main-nav-list {
+        display: flex;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+}
+
+
+
+/* LARGE */

@@ -1,17 +1,20 @@
 .main-search {
+    display: grid;
+    grid-template-columns: minmax(60px, 1fr) 90px;
+    gap: 15px;
     padding: 20px 10px;
 }
 
 .main-search .search {
-    width: 540px;
+    grid-column: 1 / -1;
+
     padding: 10px 20px;
     background: #22252C;
     border-radius: 50px;
-
 }
 
 .search-by-click {
-    margin-left: 26px;
+    grid-row: 2;
     padding: 10px 20px;
     border-radius: 50px;
 
@@ -20,9 +23,12 @@
 }
 
 .more-btn {
-    width: 95px;
-    margin-left: 10px;
+    width: 90px;
+    justify-self: end;
+    align-self: center;
 
+    padding: 5px;
+    font-size: 1rem;
     border-radius: 20px;
     border: none;
 
