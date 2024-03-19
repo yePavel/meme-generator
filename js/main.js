@@ -16,6 +16,8 @@ function displayEditor() {
     const elEditor = document.querySelector('.editor-container')
     const elCanvas = document.querySelector('canvas')
     const elEditorSetup = document.querySelector('.editor-setup')
+    const elMainSearch = document.querySelector('.main-search')
+    elMainSearch.style.display = 'none'
     elGallery.style.display = 'none'
     elEditor.style.display = 'grid'
     elCanvas.style.display = 'block'

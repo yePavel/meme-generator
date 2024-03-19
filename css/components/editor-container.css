@@ -13,8 +13,10 @@ canvas {
 
 .editor-setup {
     display: none;
-    grid-template-columns: minmax(200px, 1fr);
-    padding: 20px;
+    grid-template-columns: minmax(300px, 1fr);
+    width: 350px;
+    background-color: #383B42;
+    padding: 10px;
     border: 2px solid grey;
     border-radius: 15px;
 }

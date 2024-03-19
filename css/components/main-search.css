@@ -7,7 +7,7 @@
 
 .main-search .search {
     grid-column: 1 / -1;
-
+    color: #F2F2F3;
     padding: 10px 20px;
     background: #22252C;
     border-radius: 50px;
