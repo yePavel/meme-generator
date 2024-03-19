@@ -9,34 +9,37 @@ function renderMeme() {
     img.src = gMeme.url
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        gMeme.lines.forEach(line => {
-            drawText(line, line.currPosX, line.currPosY)
+        gMeme.lines.forEach((line, currIdx) => {
+            drawText(line, line.currPosX, line.currPosY, currIdx)
         });
     }
     renderEditorMenu()
 }
 
-function drawText(line, posX, posY) {
+function drawText(line, posX, posY, currIdx) {
     gCtx.lineWidth = 0.5
     gCtx.fillStyle = line.color
+    console.log('line.font:', line.font)
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.textBaseline = 'top'
     gCtx.fillText(line.txt, posX, posY)
     gCtx.strokeText(line.txt, posX, posY)
-    addLineBorder()
+    addLineBorder(currIdx)
 }
 
-function addLineBorder() {
+function addLineBorder(currIdx) {
     // if (gMeme.isDownload) return
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
     if (!lines[idx]) return
-    var textWidth = gCtx.measureText(lines[idx].txt).width + 3;
-    var lineHeight = lines[idx].size * 1.2;
+    if (currIdx === idx) {
+        var textWidth = gCtx.measureText(lines[idx].txt).width + 3;
+        var lineHeight = lines[idx].size * 1.2;
 
-    lines[idx].txtWidth = textWidth
-    lines[idx].txtHeight = lineHeight
-    gCtx.strokeRect(lines[idx].currPosX, lines[idx].currPosY, textWidth, lineHeight);
+        lines[idx].txtWidth = textWidth
+        lines[idx].txtHeight = lineHeight
+        gCtx.strokeRect(lines[idx].currPosX, lines[idx].currPosY, textWidth, lineHeight);
+    }
 }
 
 function onAddLine() {
