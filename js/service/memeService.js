@@ -53,7 +53,6 @@ function switchLine(type, idx) {
 function setImg(imgId) {
     const currImg = findImgById(imgId)
     gMeme.url = currImg.url
-    gMeme.selectedImgId = currImg.id
 }
 
 function setLineColor() {
