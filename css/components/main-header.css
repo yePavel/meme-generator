@@ -4,12 +4,9 @@
 }
 
 .logo {
-    font-size: 1.375em;
     margin-left: 3em;
-    text-transform: uppercase;
-    color: #FFFFFF;
+    width: 50px;
 }
-
 
 .main-nav-list li {
     justify-content: center;

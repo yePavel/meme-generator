@@ -1,11 +1,11 @@
 'use strict'
 
 const IMG_KEY = 'currImg'
-const SEARCH_WORD = {
-    funny: 6,
-    tramp: 3,
-    famous: 2,
-}
+// const SEARCH_WORD = {
+//     funny: 6,
+//     tramp: 3,
+//     famous: 2,
+// }
 
 var gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['funny', 'tramp', 'famous'] },
