@@ -31,10 +31,6 @@
     -webkit-background-clip: text;
 }
 
-.main-nav-list li:last-child {
-    margin-right: 12em;
-}
-
 .main-nav-list li a {
     text-decoration: none;
     font-size: 1.1375em;

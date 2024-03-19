@@ -11,17 +11,38 @@ function onInit() {
     addListeners()
 }
 
-function displayEditor() {
+function switchDisplay(page) {
+    const elMainSearch = document.querySelector('.main-search')
     const elGallery = document.querySelector('.gallery-container')
     const elEditor = document.querySelector('.editor-container')
     const elCanvas = document.querySelector('canvas')
     const elEditorSetup = document.querySelector('.editor-setup')
-    const elMainSearch = document.querySelector('.main-search')
-    elMainSearch.style.display = 'none'
-    elGallery.style.display = 'none'
-    elEditor.style.display = 'grid'
-    elCanvas.style.display = 'block'
-    elEditorSetup.style.display = 'grid'
+    const elSaved = document.querySelector('.saved-container')
+
+    if (page === 'editor') {
+        elSaved.style.display = 'none'
+        elMainSearch.style.display = 'none'
+        elGallery.style.display = 'none'
+        elEditor.style.display = 'grid'
+        elCanvas.style.display = 'block'
+        elEditorSetup.style.display = 'grid'
+    }
+    else if (page === 'saved') {
+        elMainSearch.style.display = 'none'
+        elGallery.style.display = 'none'
+        elEditor.style.display = 'none'
+        elCanvas.style.display = 'none'
+        elEditorSetup.style.display = 'none'
+        elSaved.style.display = 'block'
+    }
+    else if (page === 'gallery') {
+        elMainSearch.style.display = 'grid'
+        elGallery.style.display = 'grid'
+        elEditor.style.display = 'none'
+        elCanvas.style.display = 'none'
+        elEditorSetup.style.display = 'none'
+        elSaved.style.display = 'none'
+    }
 }
 
 // function getSearchWords() {

@@ -19,7 +19,6 @@ function renderMeme() {
 function drawText(line, posX, posY, currIdx) {
     gCtx.lineWidth = 0.5
     gCtx.fillStyle = line.color
-    console.log('line.font:', line.font)
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.textBaseline = 'top'
     gCtx.fillText(line.txt, posX, posY)

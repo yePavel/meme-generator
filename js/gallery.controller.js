@@ -10,7 +10,7 @@ function renderGallery() {
 
 function onImgSelect(imgId) {
     setImg(imgId)
-    displayEditor()
+    switchDisplay('editor')
     renderMeme()
 }
 

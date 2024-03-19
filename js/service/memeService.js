@@ -1,7 +1,7 @@
 'use strict'
 
 var gMeme
-
+let gSavedImg = []
 
 function getMeme() {
     return {
@@ -25,12 +25,6 @@ function getMeme() {
     }
 }
 
-function switchLine(type, idx) {
-    if (type === 'clickBtn') {
-        if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
-        else gMeme.selectedLineIdx += 1
-    } else gMeme.selectedLineIdx = idx
-}
 
 function addLine() {
     const { lines } = gMeme
@@ -47,6 +41,13 @@ function addLine() {
     })
     gMeme.selectedLineIdx = (gMeme.lines.length - 1)
     renderMeme()
+}
+
+function switchLine(type, idx) {
+    if (type === 'clickBtn') {
+        if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
+        else gMeme.selectedLineIdx += 1
+    } else gMeme.selectedLineIdx = idx
 }
 
 function setImg(imgId) {
@@ -144,4 +145,33 @@ function setLineTxt() {
     const txtInput = document.querySelector('.txt-change').value
     lines[idx].txt = txtInput
     renderMeme()
+}
+
+function onSave() {
+    gSavedImg.push({
+        idx: gMeme.selectedImgId,
+        url: gCanvas.toDataURL()
+    })
+    saveToStorage('canvas', gSavedImg)
+    saveImg()
+}
+
+function saveImg() {
+    var dataURL = loadFromStorage('canvas')
+
+    console.log('dataURL:', dataURL)
+    dataURL.forEach(img => {
+        var newImg = new Image();
+        newImg.src = img.url
+        document.querySelector('.saved-container').appendChild(newImg);
+    })
+}
+
+function onLoad() {
+    var dataURL = localStorage.getItem(canvasName);
+    var img = new Image;
+    img.src = dataURL;
+    img.onload = function () {
+        gCtx.drawImage(img, 0, 0);
+    };
 }
