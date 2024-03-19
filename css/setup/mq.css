@@ -1,0 +1,14 @@
+/* MEDIUM */
+@media (min-width:640px) {
+    .toggle-menu-btn {
+        display: none;
+    }
+
+    .main-nav-list {
+        display: flex;
+    }
+}
+
+
+
+/* LARGE */

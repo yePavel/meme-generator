@@ -42,3 +42,13 @@
     font-size: 1.1375em;
     color: #FFFFFF;
 }
+
+.toggle-menu-btn {
+    position: relative;
+    transform: scale(1.5);
+    color: #30BB72;
+    border-radius: 50%;
+    border-style: none;
+    background: #ffffff;
+    left: -30px;
+}

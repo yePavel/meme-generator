@@ -1,6 +1,11 @@
 'use strict'
 
 const IMG_KEY = 'currImg'
+const SEARCH_WORD = {
+    funny: 6,
+    tramp: 3,
+    famous: 2,
+}
 
 var gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['funny', 'tramp', 'famous'] },
@@ -9,7 +14,7 @@ var gImgs = [
     { id: 4, url: 'img/4.jpg', keywords: ['sweet', 'cat'] },
     { id: 5, url: 'img/5.jpg', keywords: ['funny', 'kids'] },
     { id: 6, url: 'img/6.jpg', keywords: ['funny'] },
-    { id: 7, url: 'img/7.jpg', keywords: ['funny,kids'] },
+    { id: 7, url: 'img/7.jpg', keywords: ['funny', 'kids'] },
     { id: 8, url: 'img/8.jpg', keywords: ['hat'] },
     { id: 9, url: 'img/9.jpg', keywords: ['funny', 'kids'] },
     { id: 10, url: 'img/10.jpg', keywords: ['funny', 'obama', 'famous'] },

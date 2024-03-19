@@ -20,5 +20,9 @@ function displayEditor() {
     elEditor.style.display = 'grid'
     elCanvas.style.display = 'block'
     elEditorSetup.style.display = 'grid'
-
 }
+
+// function getSearchWords() {
+//     const elSearchByClick = document.querySelector('search-by-click')
+//     SEARCH_WORD.forEach
+// }
