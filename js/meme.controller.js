@@ -3,7 +3,6 @@
 var gStartPos
 const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
 
-
 function renderMeme() {
     const img = new Image()
     img.src = gMeme.url

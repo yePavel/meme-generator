@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/icons/Logo.png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body onload="onInit()">
     <header class="main-header flex space-between align-center">
-        <div class="logo">Logo</div>
+        <div><img class="logo" src="/icons/Logo.png" alt=""></div>
         <nav>
             <ul class="main-nav-list hidden flex clean-list">
                 <li onclick="switchDisplay('gallery')" class="flex align-center"><a class="gallery-link"
@@ -81,13 +81,14 @@
         <small class="footer-rights">@ all rights reserved to Pavel.y 2024</small>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.2/fabric.min.js"></script>
     <script src="js/service/memeService.js"></script>
     <script src="js/service/galleryService.js"></script>
     <script src="js/service/storageService.js"></script>
     <script src="js/gallery.controller.js"></script>
-    <script src="js/meme.controller.js"></script>
     <script src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.2/fabric.min.js"></script>
+    <script src="js/meme.controller.js"></script>
+    <script src="js/saved.controller.js"></script>
 </body>
 
 </html>

@@ -9,6 +9,7 @@ function onInit() {
     gCtx = gCanvas.getContext('2d')
     gMeme = getMeme()
     addListeners()
+    renderImg()
 }
 
 function switchDisplay(page) {
@@ -33,7 +34,7 @@ function switchDisplay(page) {
         elEditor.style.display = 'none'
         elCanvas.style.display = 'none'
         elEditorSetup.style.display = 'none'
-        elSaved.style.display = 'block'
+        elSaved.style.display = 'grid'
     }
     else if (page === 'gallery') {
         elMainSearch.style.display = 'grid'

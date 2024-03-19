@@ -1,3 +1,18 @@
 .saved-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-flow: dense;
+    gap: 20px;
+
+    padding: 20px;
+    margin: 0 auto;
+
     height: 700px;
+    overflow-y: scroll;
+}
+
+.saved-container img {
+    display: block;
+    border-radius: 15px;
+    width: 100%;
+    cursor: pointer;
 }

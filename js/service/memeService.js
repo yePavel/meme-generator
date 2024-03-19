@@ -53,6 +53,7 @@ function switchLine(type, idx) {
 function setImg(imgId) {
     const currImg = findImgById(imgId)
     gMeme.url = currImg.url
+    gMeme.selectedImgId = currImg.id
 }
 
 function setLineColor() {
@@ -152,26 +153,11 @@ function onSave() {
         idx: gMeme.selectedImgId,
         url: gCanvas.toDataURL()
     })
+    var newImg = new Image();
+    newImg.addEventListener('click', getImgToEdit)
+    newImg.src = gCanvas.toDataURL()
+    document.querySelector('.saved-container').appendChild(newImg);
     saveToStorage('canvas', gSavedImg)
-    saveImg()
 }
 
-function saveImg() {
-    var dataURL = loadFromStorage('canvas')
 
-    console.log('dataURL:', dataURL)
-    dataURL.forEach(img => {
-        var newImg = new Image();
-        newImg.src = img.url
-        document.querySelector('.saved-container').appendChild(newImg);
-    })
-}
-
-function onLoad() {
-    var dataURL = localStorage.getItem(canvasName);
-    var img = new Image;
-    img.src = dataURL;
-    img.onload = function () {
-        gCtx.drawImage(img, 0, 0);
-    };
-}
