@@ -15,4 +15,9 @@
     .editor-setup {
         justify-self: start;
     }
+
+    .main-header {
+        border-radius: 50px;
+        margin: 10px 5px;
+    }
 }

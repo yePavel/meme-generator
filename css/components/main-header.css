@@ -1,8 +1,6 @@
 .main-header {
     height: 73px;
     background: linear-gradient(90deg in oklab, #0F9BB4, #30BB72);
-    border-radius: 50px;
-    margin: 10px 5px;
 }
 
 .logo {
