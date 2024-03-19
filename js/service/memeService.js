@@ -2,11 +2,13 @@
 
 var gMeme
 
+
 function getMeme() {
     return {
         selectedImgId: 1,
         selectedLineIdx: 0,
         url: '',
+        // isDownload: false,
         lines: [
             {
                 txt: 'Insert text',
@@ -66,6 +68,8 @@ function setLineSize(sizeDir) {
 }
 
 function downloadImg(elLink) {
+    // gMeme.isDownload = true
+    // renderMeme()
     const imgContent = gCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
@@ -104,7 +108,23 @@ function fontChange() {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
     const currFont = document.getElementById('fonts').value
-    lines[idx].font = currFont
+    var fontUrl = ''
+
+    if (currFont === 'bungee') fontUrl = '/fonts/Bungee_Inline/BungeeInline-Regular.ttf'
+    else if (currFont === 'Ceviche') fontUrl = '/fonts/Ceviche_One/CevicheOne-Regular.ttf'
+    else if (currFont === 'mulish') fontUrl = '/fonts/Mulish/Mulish-VariableFont_wght.ttf'
+    else if (currFont === 'syne') fontUrl = '/fonts/Syne_Tactile/SyneTactile-Regular.ttf'
+    else if (currFont === 'vollkorn') fontUrl = '/fonts/Merienda/Merienda-VariableFont_wght.ttf'
+    else fontUrl = '/fonts/Ariel/Asul-Regular.ttf'
+
+    var myFont = new FontFace('myFont', `url(${fontUrl})`);
+    myFont.load().then(function (font) {
+        document.fonts.add(font);
+
+        console.log('Font loaded');
+        lines[idx].font = currFont
+        renderMeme()
+    });
 }
 
 function alignText() {
@@ -116,4 +136,12 @@ function alignText() {
     else if (lines[idx].textAlign === 'right')
         lines[idx].currPosX = 5
     else lines[idx].currPosX = (gCanvas.width - lines[idx].txtWidth)
+}
+
+function setLineTxt() {
+    const { lines } = gMeme
+    const { selectedLineIdx: idx } = gMeme
+    const txtInput = document.querySelector('.txt-change').value
+    lines[idx].txt = txtInput
+    renderMeme()
 }

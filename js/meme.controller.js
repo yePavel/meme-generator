@@ -3,6 +3,7 @@
 var gStartPos
 const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
 
+
 function renderMeme() {
     const img = new Image()
     img.src = gMeme.url
@@ -26,6 +27,7 @@ function drawText(line, posX, posY) {
 }
 
 function addLineBorder() {
+    // if (gMeme.isDownload) return
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
     if (!lines[idx]) return
@@ -147,17 +149,9 @@ function onMoveText(ev) {
 }
 
 function onFontChange() {
-    renderMeme()
     fontChange()
-    renderMeme()
 }
 
-function setLineTxt() {
-    const txtInput = document.querySelector('.txt-change').value
-    var { lines } = gMeme
-    lines[gMeme.selectedLineIdx].txt = txtInput
-    renderMeme()
-}
 
 function onTextAlignment(dir) {
     const { lines } = gMeme

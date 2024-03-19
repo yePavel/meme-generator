@@ -27,3 +27,8 @@
     font-family: vollkorn;
     src: url(/fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
 }
+
+@font-face {
+    font-family: ariel;
+    src: url(/fonts/Ariel/Asul-Regular.ttf);
+}
