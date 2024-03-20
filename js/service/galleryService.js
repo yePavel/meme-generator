@@ -27,10 +27,10 @@ const gSearchWords = [
     { name: 'Funny', clicks: 0.5, color: 'black' },
     { name: 'Tramp', clicks: 0.7, color: 'red' },
     { name: 'Famous', clicks: 0.6, color: 'green' },
-    { name: 'Dog', clicks: 0.4, color: 'blue' },
+    { name: 'Dog', clicks: 1.2, color: 'blue' },
     { name: 'Kiss', clicks: 0.6, color: 'aqua' },
     { name: 'Cat', clicks: 0.4, color: 'bisque' },
-    { name: 'Kids', clicks: 1, color: 'brown' },
+    { name: 'Kids', clicks: 2, color: 'brown' },
     { name: 'Hat', clicks: 0.2, color: 'coral' },
     { name: 'Obama', clicks: 0.7, color: 'cyan' },
     { name: 'Tv_show', clicks: 0.6, color: 'crimson' },
@@ -45,7 +45,8 @@ function findImgById(imgId) {
 
 function getImgs(clickedWord) {
     var imgs = searchByDataList(clickedWord)
-    if (imgs.length > 0) return imgs
+    // if (imgs.length > 0) return imgs
+    if (imgs) return imgs
     else return gImgs
 }
 
@@ -71,3 +72,4 @@ function onWordClick(val) {
     })
     renderClickWords()
 }
+
