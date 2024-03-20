@@ -82,7 +82,7 @@
                 <section class="imojis"></section>
                 <div class="action-btns">
                     <button onclick="onSave()" class="save-btn">Save</button>
-                    <button class="share-btn">Share</button>
+                    <button onclick="onUploadImg()" class="share-btn">Share</button>
                     <button class="download-btn"><a href="#" onclick="downloadImg(this)"
                             download="my-img.jpg">Download</a></button>
                 </div>
@@ -104,6 +104,7 @@
     <script src="js/main.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/saved.controller.js"></script>
+    <script src="js/service/share.service.js"></script>
 </body>
 
 </html>
