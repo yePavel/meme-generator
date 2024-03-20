@@ -30,6 +30,10 @@
 
 @media (min-width:640px) {
 
+    body.menu-open .main-screen {
+        display: none;
+    }
+
     .toggle-menu-btn {
         display: none;
     }

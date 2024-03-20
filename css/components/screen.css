@@ -1,0 +1,11 @@
+.main-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
+
+body.menu-open .main-screen {
+    display: block;
+}

@@ -9,14 +9,15 @@
 
 /* MAIN */
 @import url(main.css);
+
+/* COMPONENTS */
 @import url(components/main-search.css);
 @import url(components/gallery-container.css);
 @import url(components/footer.css);
-
-/* EDITOR */
 @import url(components/editor-container.css);
 @import url(components/text-control.css);
 @import url(components/text-style.css);
+@import url(components/screen.css);
 
 /* SAVED */
 @import url(components/saved-container.css);

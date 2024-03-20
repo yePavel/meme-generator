@@ -46,10 +46,10 @@ function switchDisplay(page) {
         elEditorSetup.style.display = 'none'
         elSaved.style.display = 'none'
     }
-    toggleMenu()
 }
 
 function toggleMenu() {
     document.querySelector('.toggle-menu-btn').classList.toggle('hidden')
     document.body.classList.toggle('menu-open');
 }
+
