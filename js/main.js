@@ -14,6 +14,7 @@ function onInit() {
 }
 
 function switchDisplay(page) {
+
     const elMainSearch = document.querySelector('.main-search')
     const elGallery = document.querySelector('.gallery-container')
     const elEditor = document.querySelector('.editor-container')
@@ -45,5 +46,10 @@ function switchDisplay(page) {
         elEditorSetup.style.display = 'none'
         elSaved.style.display = 'none'
     }
+    toggleMenu()
 }
 
+function toggleMenu() {
+    document.querySelector('.toggle-menu-btn').classList.toggle('hidden')
+    document.body.classList.toggle('menu-open');
+}

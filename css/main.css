@@ -24,3 +24,8 @@ button {
 .meme-text {
     font-size: 1em;
 }
+
+body.menu-open {
+    opacity: 1;
+    pointer-events: auto;
+}
