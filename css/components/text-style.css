@@ -1,6 +1,6 @@
 .text-style {
     display: grid;
-    grid-template-columns: minmax(60px, 1fr) minmax(60px, 1fr) minmax(60px, 1fr) minmax(60px, 1fr) minmax(60px, 1fr);
+    grid-template-columns: minmax(50px, 1fr) minmax(50px, 1fr) minmax(50px, 1fr) minmax(40px, 1fr) minmax(40px, 1fr);
 
     min-width: 300px;
     background-color: #19A59F;

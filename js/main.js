@@ -9,6 +9,7 @@ function onInit() {
     gCtx = gCanvas.getContext('2d')
     gMeme = getMeme()
     addListeners()
+    renderClickWords()
     renderImg()
 }
 
@@ -46,7 +47,3 @@ function switchDisplay(page) {
     }
 }
 
-// function getSearchWords() {
-//     const elSearchByClick = document.querySelector('search-by-click')
-//     SEARCH_WORD.forEach
-// }

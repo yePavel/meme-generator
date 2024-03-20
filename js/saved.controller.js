@@ -2,9 +2,8 @@
 
 function renderImg() {
     var dataURL = loadFromStorage('canvas')
-    console.log('dataURL:', dataURL)
     if (!dataURL) return
-    dataURL.forEach((img, idx) => {
+    dataURL.forEach(img => {
         var newImg = new Image();
         newImg.src = img.url
         newImg.addEventListener('click', getImgToEdit)

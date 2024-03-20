@@ -17,9 +17,17 @@
     grid-row: 2;
     padding: 10px 20px;
     border-radius: 50px;
-
+    justify-content: center;
     background-color: #87898D;
     color: #F2F2F3;
+}
+
+.search-by-click span {
+    margin: 5px;
+}
+
+.search-by-click span:hover {
+    cursor: pointer;
 }
 
 .more-btn {
