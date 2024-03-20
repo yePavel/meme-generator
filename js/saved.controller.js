@@ -6,7 +6,7 @@ function renderImg() {
     dataStorage.forEach(img => {
         var newImg = new Image();
         newImg.src = img.url
-        newImg.addEventListener('click', getImgToEdit)
+        // newImg.addEventListener('click', getImgToEdit)
         document.querySelector('.saved-container').appendChild(newImg);
     })
 }
