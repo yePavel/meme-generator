@@ -13,12 +13,10 @@ function onImgSelect(imgId) {
     setImg(imgId)
     switchDisplay('editor')
     renderMeme()
-
 }
 
 function renderClickWords() {
     var words = sortDataListWords()
-    console.log('words:', words)
     const elSearch = document.querySelector('.search-by-click')
     const strHtml = words.map((word) =>
         `<span onclick="onWordClick('${word.name}')">

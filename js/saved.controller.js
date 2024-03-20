@@ -1,9 +1,9 @@
 'use strict'
 
 function renderImg() {
-    var dataURL = loadFromStorage('canvas')
-    if (!dataURL) return
-    dataURL.forEach(img => {
+    var dataStorage = loadFromStorage('canvas')
+    if (!dataStorage) return
+    dataStorage.forEach(img => {
         var newImg = new Image();
         newImg.src = img.url
         newImg.addEventListener('click', getImgToEdit)
@@ -11,6 +11,3 @@ function renderImg() {
     })
 }
 
-function getImgToEdit() {
-    console.log('hello')
-}

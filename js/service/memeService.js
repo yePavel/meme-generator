@@ -8,7 +8,6 @@ function getMeme() {
         selectedImgId: 1,
         selectedLineIdx: 0,
         url: '',
-        // isDownload: false,
         lines: [
             {
                 txt: 'Insert text',
@@ -25,7 +24,6 @@ function getMeme() {
         ]
     }
 }
-
 
 function addLine() {
     const { lines } = gMeme
@@ -55,6 +53,7 @@ function switchLine(type, idx) {
 function setImg(imgId) {
     const currImg = findImgById(imgId)
     gMeme.url = currImg.url
+    gMeme.selectedImgId = currImg.id
 }
 
 function setLineColor() {
@@ -71,11 +70,10 @@ function setLineSize(sizeDir) {
 }
 
 function downloadImg(elLink) {
-    // gMeme.isDownload = true
-    // renderMeme()
     const imgContent = gCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
+
 
 function setTxtFrameDrag(isDrag) {
     var { lines } = gMeme
@@ -150,15 +148,31 @@ function setLineTxt() {
 }
 
 function onSave() {
-    gSavedImg.push({
-        idx: gMeme.selectedImgId,
-        url: gCanvas.toDataURL()
-    })
+    console.log('gMeme.lines:', gMeme.lines)
+    gSavedImg.push(
+        {
+            selectedImgId: gMeme.selectedImgId,
+            selectedLineIdx: gMeme.selectedLineIdx,
+            url: gMeme.url,
+            lines: gMeme.lines
+        }
+    )
+    saveToStorage('canvas', gSavedImg)
     var newImg = new Image();
-    newImg.addEventListener('click', getImgToEdit)
+    newImg.addEventListener('click', function () {
+        const currImg = loadFromStorage('canvas')
+        console.log('gMeme.selectedImgId:', gMeme.selectedImgId)
+        console.log('currImg:', currImg)
+        currImg.forEach(img => {
+            if (img.selectedImgId === gMeme.selectedImgId) {
+                gMeme = img
+                renderMeme()
+                switchDisplay('editor')
+            }
+        })
+    })
     newImg.src = gCanvas.toDataURL()
     document.querySelector('.saved-container').appendChild(newImg);
-    saveToStorage('canvas', gSavedImg)
 }
 
 function setOutLineColor() {

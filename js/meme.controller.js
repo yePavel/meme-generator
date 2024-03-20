@@ -27,7 +27,6 @@ function drawText(line, posX, posY, currIdx) {
 }
 
 function addLineBorder(currIdx) {
-    // if (gMeme.isDownload) return
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
     if (!lines[idx]) return
@@ -118,7 +117,6 @@ function renderEditorMenu() {
     document.querySelector('.txt-change').value = lines[idx].txt
     document.querySelector('.txt-color').value = lines[idx].color
     document.querySelector('.txt-outline').value = lines[idx].outlineColor
-
 }
 
 function onDeleteLine() {
