@@ -13,7 +13,7 @@ function onImgSelect(imgId) {
     setImg(imgId)
     switchDisplay('editor')
     renderMeme()
-    toggleMenu()
+
 }
 
 function renderClickWords() {

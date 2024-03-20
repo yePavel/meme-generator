@@ -30,6 +30,19 @@
 
 @media (min-width:640px) {
 
+    main {
+        margin: 0 80px;
+    }
+
+    footer {
+        margin: 0px 80px;
+    }
+
+    .main-header {
+        border-radius: 50px;
+        margin: 10px 80px;
+    }
+
     body.menu-open .main-screen {
         display: none;
     }
@@ -50,8 +63,5 @@
         justify-self: start;
     }
 
-    .main-header {
-        border-radius: 50px;
-        margin: 10px 5px;
-    }
+
 }
