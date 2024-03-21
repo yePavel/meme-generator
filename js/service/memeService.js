@@ -82,6 +82,7 @@ function downloadImg() {
         link.click()
         gMeme.isDownload = false
     }, 100)
+    flashMsg('download started...')
 }
 
 
@@ -173,6 +174,7 @@ function onSave() {
     newImg.addEventListener('click', getImgFromSaved)
     newImg.myParam = gMeme.selectedImgId
     document.querySelector('.saved-container').appendChild(newImg);
+    flashMsg('Saved!')
 }
 
 function setOutLineColor() {
