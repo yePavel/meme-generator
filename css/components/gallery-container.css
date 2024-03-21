@@ -26,13 +26,21 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to right, #0F9BB4, #30BB72);
+    background: rgb(15, 155, 180);
+    background: -moz-linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    background: linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f9bb4", endColorstr="#30bb72", GradientType=1);
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to right, #006f82, #00a04b);
+    background: rgb(15, 155, 180);
+    background: -moz-linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    background: linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f9bb4", endColorstr="#30bb72", GradientType=1);
 }
 
 .img {

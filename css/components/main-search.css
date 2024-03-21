@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: minmax(60px, 1fr) 90px;
     gap: 15px;
-    padding: 20px 10px;
+    padding: 15px 10px;
 }
 
 .main-search .search {
@@ -40,7 +40,11 @@
     border-radius: 20px;
     border: none;
 
-    background: linear-gradient(90deg in oklab, #0F9BB4, #30BB72);
+    background: rgb(15, 155, 180);
+    background: -moz-linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    background: linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f9bb4", endColorstr="#30bb72", GradientType=1);
     color: #F2F2F3;
     cursor: pointer;
 }
