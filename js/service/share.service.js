@@ -1,6 +1,6 @@
 'use strict'
 
-function onUploadImg() {
+function onShareImg() {
     // Gets the image from the canvas
     const imgDataUrl = gCanvas.toDataURL('image/jpeg')
 

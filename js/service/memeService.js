@@ -8,6 +8,7 @@ function getMeme() {
         selectedImgId: 1,
         selectedLineIdx: 0,
         url: '',
+        isDownload: false,
         lines: [
             {
                 txt: 'Insert text',
@@ -69,9 +70,18 @@ function setLineSize(sizeDir) {
     renderMeme()
 }
 
-function downloadImg(elLink) {
-    const imgContent = gCanvas.toDataURL('image/jpeg')
-    elLink.href = imgContent
+function downloadImg() {
+    gMeme.isDownload = true
+    renderMeme()
+
+    setTimeout(() => {
+        const link = document.createElement('a')
+        const dataURL = gCanvas.toDataURL('image/jpeg')
+        link.href = dataURL
+        link.download = 'newMeme'
+        link.click()
+        gMeme.isDownload = false
+    }, 100)
 }
 
 

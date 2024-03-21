@@ -27,6 +27,7 @@ function drawText(line, posX, posY, currIdx) {
 }
 
 function addLineBorder(currIdx) {
+    if (gMeme.isDownload) return
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
     if (!lines[idx]) return
