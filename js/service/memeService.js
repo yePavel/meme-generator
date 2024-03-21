@@ -158,6 +158,8 @@ function setLineTxt() {
 }
 
 function onSave() {
+    var newImg = new Image();
+    newImg.src = gCanvas.toDataURL()
     console.log('gMeme.lines:', gMeme.lines)
     gSavedImg.push(
         {
@@ -168,20 +170,8 @@ function onSave() {
         }
     )
     saveToStorage('canvas', gSavedImg)
-    var newImg = new Image();
-    newImg.addEventListener('click', function () {
-        const currImg = loadFromStorage('canvas')
-        console.log('gMeme.selectedImgId:', gMeme.selectedImgId)
-        console.log('currImg:', currImg)
-        currImg.forEach(img => {
-            if (img.selectedImgId === gMeme.selectedImgId) {
-                gMeme = img
-                renderMeme()
-                switchDisplay('editor')
-            }
-        })
-    })
-    newImg.src = gCanvas.toDataURL()
+    newImg.addEventListener('click', getImgFromSaved)
+    newImg.myParam = gMeme.selectedImgId
     document.querySelector('.saved-container').appendChild(newImg);
 }
 
@@ -191,3 +181,4 @@ function setOutLineColor() {
     lines[gMeme.selectedLineIdx].outlineColor = colorInput
     renderMeme()
 }
+

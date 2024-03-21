@@ -7,7 +7,11 @@
         right: 0;
         height: 100vh;
         width: 20vw;
-        background: linear-gradient(90deg in oklab, rgba(15, 155, 180, .9), rgb(48, 187, 114, 1));
+        background: rgb(15, 155, 180);
+        background: -moz-linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+        background: -webkit-linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+        background: linear-gradient(90deg, rgba(15, 155, 180, 1) 35%, rgba(48, 187, 114, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f9bb4", endColorstr="#30bb72", GradientType=1);
         border-inline-start: 1px solid #ccc;
         z-index: 1;
         transform: translateX(100%);
