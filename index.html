@@ -28,7 +28,6 @@
 
     <main class="main-content">
         <div class="main-search">
-            <!-- <input type="file" class="file-input btn" name="userImg" onchange="onImgInput(event)" accept="image/*" /> -->
             <input oninput="renderGallery()" list="search-datalist" class="search" type="search" placeholder="Search">
             <datalist id="search-datalist">
                 <option value="Funny">
@@ -46,8 +45,13 @@
             </datalist>
             <div class="search-by-click flex align-center">bla1 bla2 bla3 bla4</div>
             <button onclick="renderGallery(null)" class="more-btn">Clear</button>
+            <label for="images" class="drop-container" id="dropcontainer">
+                <img src="icons/upload.png" class="upload-icon">
+                <span class="drop-title">Click to upload</span>
+                <input type="file" id="images" class="file-input" name="userImg" onchange="onImgInput(event)"
+                    accept="image/*" />
         </div>
-        <div class="gallery-container "></div>
+        <div class="gallery-container"></div>
 
         <div class="editor-container">
             <canvas width="300" height="300"></canvas>
@@ -82,9 +86,12 @@
                 </section>
                 <section class="imojis"></section>
                 <div class="action-btns">
-                    <button onclick="onSave()" class="save-btn">Save</button>
-                    <button onclick="onShareImg()" class="share-btn">Share</button>
-                    <button onclick="downloadImg()" class="download-btn">Download</button>
+                    <button onclick="onSave()" class="save-btn"><img class="save-btn-icon"
+                            src="icons/save.png">Save</button>
+                    <button onclick="onShareImg()" class="share-btn"><img class="share-btn-icon"
+                            src="icons/share.png">Share</button>
+                    <button onclick="downloadImg()" class="download-btn"> <img class="download-btn-icon"
+                            src="icons/download.png">Download</button>
                 </div>
             </div>
         </div>

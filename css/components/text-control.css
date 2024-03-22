@@ -20,6 +20,11 @@
     box-shadow: 0px 4px 0px 0px #00809f, 0px -4px 0 #58C1D8;
 }
 
+.save-btn-icon {
+    width: 20px;
+    margin-inline-end: 10px;
+}
+
 .text-control button:nth-child(2) {
     background-color: #3AC24F;
     border: none;
@@ -27,9 +32,19 @@
     box-shadow: 0px 4px 0px 0px #006810, 0px -4px 0 #5AC26E;
 }
 
+.share-btn-icon {
+    width: 20px;
+    margin-inline-end: 10px;
+}
+
 .text-control button:nth-child(3) {
     background-color: #E03736;
     border: none;
     border-radius: 10px;
     box-shadow: 0px 4px 0px 0px #830000, 0px -4px 0 #D96158;
+}
+
+.download-btn-icon {
+    width: 20px;
+    margin-inline-end: 10px;
 }

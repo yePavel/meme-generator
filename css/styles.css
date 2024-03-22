@@ -1,5 +1,6 @@
 /* SETUP */
 @import url(setup/typography.css);
+
 /* BASIC */
 @import url(basics.css/helpers.css);
 @import url(basics.css/base.css);
@@ -12,6 +13,7 @@
 
 /* COMPONENTS */
 @import url(components/main-search.css);
+@import url(components/upload.css);
 @import url(components/gallery-container.css);
 @import url(components/footer.css);
 @import url(components/editor-container.css);

@@ -4,8 +4,8 @@ const IMG_KEY = 'currImg'
 
 var gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['funny', 'tramp', 'famous'] },
-    { id: 3, url: 'img/3.jpg', keywords: ['sweet', 'dog', 'kids'] },
     { id: 2, url: 'img/2.jpg', keywords: ['sweet', 'dog', 'kiss'] },
+    { id: 3, url: 'img/3.jpg', keywords: ['sweet', 'dog', 'kids'] },
     { id: 4, url: 'img/4.jpg', keywords: ['sweet', 'cat'] },
     { id: 5, url: 'img/5.jpg', keywords: ['funny', 'kids'] },
     { id: 6, url: 'img/6.jpg', keywords: ['funny'] },
@@ -72,29 +72,24 @@ function onWordClick(val) {
     renderClickWords()
 }
 
-// function onImgInput(ev) {
-//     loadImageFromInput(ev)
-// }
+function onImgInput(ev) {
+    loadImageFromInput(ev)
+}
 
-// function loadImageFromInput(ev) {
-//     const reader = new FileReader()
+function loadImageFromInput(ev) {
+    const reader = new FileReader()
 
-//     reader.onload = ev => {
-//         let img = new Image()
-//         img.src = ev.target.result
-//         img.onload = () => renderImg(img)
-//     }
-//     reader.readAsDataURL(ev.target.files[0])
-// }
-
-// function renderImg(img) {
-//     gImgs.push(
-//         { id: 100,
-//         url: 'img/userImg.jpg',
-//         keywords: ['funny', 'tramp', 'famous']
-//     },
-
-
-//     )
-// }
+    reader.onload = ev => {
+        let img = new Image()
+        img.src = ev.target.result
+        gImgs.unshift(
+            {
+                id: gImgs.length + 1,
+                url: img.src,
+                keywords: ['user-img']
+            },)
+        img.onload = () => renderGallery()
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
 
