@@ -28,6 +28,7 @@
 
     <main class="main-content">
         <div class="main-search">
+            <!-- <input type="file" class="file-input btn" name="userImg" onchange="onImgInput(event)" accept="image/*" /> -->
             <input oninput="renderGallery()" list="search-datalist" class="search" type="search" placeholder="Search">
             <datalist id="search-datalist">
                 <option value="Funny">
@@ -99,6 +100,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.2/fabric.min.js"></script>
     <script src="js/service/memeService.js"></script>
     <script src="js/service/galleryService.js"></script>
+    <script src="js/service/utilService.js"></script>
     <script src="js/service/storageService.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/main.js"></script>

@@ -10,6 +10,7 @@ function renderGallery(clickedWord) {
 }
 
 function onImgSelect(imgId) {
+    gMeme = getMeme()
     setImg(imgId)
     switchDisplay('editor')
     renderMeme()

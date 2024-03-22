@@ -72,3 +72,29 @@ function onWordClick(val) {
     renderClickWords()
 }
 
+// function onImgInput(ev) {
+//     loadImageFromInput(ev)
+// }
+
+// function loadImageFromInput(ev) {
+//     const reader = new FileReader()
+
+//     reader.onload = ev => {
+//         let img = new Image()
+//         img.src = ev.target.result
+//         img.onload = () => renderImg(img)
+//     }
+//     reader.readAsDataURL(ev.target.files[0])
+// }
+
+// function renderImg(img) {
+//     gImgs.push(
+//         { id: 100,
+//         url: 'img/userImg.jpg',
+//         keywords: ['funny', 'tramp', 'famous']
+//     },
+
+
+//     )
+// }
+

@@ -5,13 +5,20 @@ function renderImg() {
     if (!dataStorage) return
     dataStorage.forEach(img => {
         var newImg = new Image();
-        gMeme = img
-        newImg.src = img.url
+        newImg.addEventListener('click', getImgFromSaved)
+        newImg.myParam = img.id
+        // gMeme = img
+        newImg.src = img.imgSavedURL
         document.querySelector('.saved-container').appendChild(newImg);
     })
 }
 
 function getImgFromSaved(evt) {
-    onImgSelect(evt.currentTarget.myParam)
+    const dataStorage = loadFromStorage('canvas')
+    const currIMG = dataStorage.find(img => img.id === evt.currentTarget.myParam)
+    console.log('currIMG:', currIMG)
+    gMeme = currIMG
+    switchDisplay('editor')
+    renderMeme()
 }
 

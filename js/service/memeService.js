@@ -103,6 +103,7 @@ function isTxtFrameClicked(clickedPos) {
             onSwitchLine('mouseClick', idx)
         }
     });
+    console.log('lines[idx]:', lines[idx])
     return ((clickedPos.x >= lines[idx].currPosX) &&
         (clickedPos.x <= (lines[idx].txtWidth + lines[idx].currPosX)) &&
         (clickedPos.y >= lines[idx].currPosY) &&
@@ -161,19 +162,26 @@ function setLineTxt() {
 function onSave() {
     var newImg = new Image();
     newImg.src = gCanvas.toDataURL()
-    console.log('gMeme.lines:', gMeme.lines)
+    const newID = makeId()
+    if (loadFromStorage('canvas')) {
+        gSavedImg = loadFromStorage('canvas')
+    }
     gSavedImg.push(
         {
+            id: newID,
             selectedImgId: gMeme.selectedImgId,
-            selectedLineIdx: gMeme.selectedLineIdx,
+            selectedLineIdx: gMeme.selectedImgId,
+            isDownload: gMeme.isDownload,
             url: gMeme.url,
-            lines: gMeme.lines
+            lines: gMeme.lines,
+            imgSavedURL: newImg.src
         }
     )
     saveToStorage('canvas', gSavedImg)
     newImg.addEventListener('click', getImgFromSaved)
-    newImg.myParam = gMeme.selectedImgId
+    newImg.myParam = newID
     document.querySelector('.saved-container').appendChild(newImg);
+    gMeme = getMeme()
     flashMsg('Saved!')
 }
 
@@ -184,3 +192,6 @@ function setOutLineColor() {
     renderMeme()
 }
 
+function addSavedListener() {
+
+}
