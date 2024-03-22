@@ -18,9 +18,15 @@ var gImgs = [
     { id: 13, url: 'img/13.jpg', keywords: ['famous'] },
     { id: 14, url: 'img/14.jpg', keywords: ['famous'] },
     { id: 15, url: 'img/15.jpg', keywords: ['famous'] },
-    { id: 16, url: 'img/16.jpg', keywords: ['funny', 'famous'] },
+    { id: 16, url: 'img/16.jpg', keywords: ['funny', 'famous', 'patrick'] },
     { id: 17, url: 'img/17.jpg', keywords: ['putin', 'famous'] },
-    { id: 18, url: 'img/18.jpg', keywords: ['tv-show'] }
+    { id: 18, url: 'img/18.jpg', keywords: ['tv-show'] },
+    { id: 19, url: 'img/19.jpg', keywords: ['tv-show', 'scream'] },
+    { id: 20, url: 'img/20.jpg', keywords: ['tv-show', 'patrick'] },
+    { id: 21, url: 'img/21.jpg', keywords: ['kids', 'dance'] },
+    { id: 22, url: 'img/22.jpg', keywords: ['tramp', 'famous'] },
+    { id: 23, url: 'img/23.jpg', keywords: ['dog'] },
+    { id: 24, url: 'img/24.jpg', keywords: ['oprah', 'famous'] }
 ]
 
 const gSearchWords = [

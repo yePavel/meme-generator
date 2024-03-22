@@ -7,6 +7,7 @@ function renderMeme() {
     const img = new Image()
     img.src = gMeme.url
     img.onload = () => {
+        gCanvas.height = (img.naturalHeight / img.naturalWidth) * gCanvas.width
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         gMeme.lines.forEach((line, currIdx) => {
             drawText(line, line.currPosX, line.currPosY, currIdx)
