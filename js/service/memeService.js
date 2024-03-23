@@ -70,7 +70,6 @@ function switchLine(type, idx) {
 }
 
 function switchImoji(idx) {
-    console.log('gMeme.selectedImojiIdx:', gMeme.selectedImojiIdx)
     gMeme.selectedImojiIdx = idx
 }
 
@@ -233,7 +232,8 @@ function onSave() {
             isDownload: gMeme.isDownload,
             url: gMeme.url,
             lines: gMeme.lines,
-            imgSavedURL: newImg.src
+            imgSavedURL: newImg.src,
+            imojis: gMeme.imojis
         }
     )
     saveToStorage('canvas', gSavedImg)

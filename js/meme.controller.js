@@ -91,7 +91,7 @@ function onDown(ev) {
     if (gMeme.dragObject === 'txt') {
         setTxtFrameDrag(true)
     }
-    else if (gMeme.dragObject === 'imoji') {
+    else if (gMeme.dragObject === 'imoji' && gMeme.imojis.length > 0) {
         setImojiDrag(true)
     }
     document.body.style.cursor = 'grabbing'
@@ -110,7 +110,7 @@ function onMove(ev) {
         moveTxtFrame(dx, dy)
         gStartPos = pos
     }
-    else if (gMeme.dragObject === 'imoji') {
+    else if (gMeme.dragObject === 'imoji' && gMeme.imojis.length > 0) {
         if (!imojis[imojIdx].isDrag) return
         const pos = getEvPos(ev)
         const dx = pos.x - gStartPos.x
@@ -118,8 +118,6 @@ function onMove(ev) {
         moveImoji(dx, dy)
         gStartPos = pos
     }
-
-
     renderMeme()
 }
 
@@ -129,7 +127,7 @@ function onUp() {
         setTxtFrameDrag(false)
     }
 
-    else if (gMeme.dragObject === 'imoji' && gMeme.imojis.length >= 0) {
+    else if (gMeme.dragObject === 'imoji' && gMeme.imojis.length >= 1) {
         gMeme.dragObject = ''
         setImojiDrag(false)
     }

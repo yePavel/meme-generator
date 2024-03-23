@@ -7,7 +7,6 @@ function renderImg() {
         var newImg = new Image();
         newImg.addEventListener('click', getImgFromSaved)
         newImg.myParam = img.id
-        // gMeme = img
         newImg.src = img.imgSavedURL
         document.querySelector('.saved-container').appendChild(newImg);
     })
@@ -15,8 +14,10 @@ function renderImg() {
 
 function getImgFromSaved(evt) {
     const dataStorage = loadFromStorage('canvas')
-    const currIMG = dataStorage.find(img => img.id === evt.currentTarget.myParam)
-    gMeme = currIMG
+    const currImg = dataStorage.find(img => img.id === evt.currentTarget.myParam)
+    gMeme = currImg
+    gMeme.selectedLineIdx = 0
+    gMeme.selectedImgId = 0
     switchDisplay('editor')
     renderMeme()
 }
