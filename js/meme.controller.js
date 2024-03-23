@@ -12,6 +12,7 @@ function renderMeme() {
         gMeme.lines.forEach((line, currIdx) => {
             drawText(line, line.currPosX, line.currPosY, currIdx)
         });
+        drewImoji()
     }
     renderEditorMenu()
 }
@@ -40,6 +41,20 @@ function addLineBorder(currIdx) {
         lines[idx].txtHeight = lineHeight
         gCtx.strokeRect(lines[idx].currPosX, lines[idx].currPosY, textWidth, lineHeight);
     }
+}
+
+function onImojiSelect(type) {
+    addImoji(`imojis/${type}.png`)
+    drewImoji()
+}
+
+function drewImoji() {
+    const { imojis } = gMeme
+    const img = new Image()
+    imojis.forEach(imoji => {
+        img.src = imoji.url
+        gCtx.drawImage(img, imoji.currPosX, imoji.currPosY, imoji.size, imoji.size)
+    });
 }
 
 function onAddLine() {
@@ -72,27 +87,53 @@ function addTouchListeners() {
 
 function onDown(ev) {
     gStartPos = getEvPos(ev)
-    if (!isTxtFrameClicked(gStartPos)) return
-    setTxtFrameDrag(true)
+    if (!isTxtFrameClicked(gStartPos) && !isImojiClicked(gStartPos)) return
+    if (gMeme.dragObject === 'txt') {
+        setTxtFrameDrag(true)
+    }
+    else if (gMeme.dragObject === 'imoji') {
+        setImojiDrag(true)
+    }
     document.body.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
-    if (!lines[idx] || !lines[idx].isDrag) return
+    const { imojis } = gMeme
+    const { selectedImojiIdx: imojIdx } = gMeme
+    if (gMeme.dragObject === 'txt') {
+        if (!lines[idx].isDrag) return
+        const pos = getEvPos(ev)
+        const dx = pos.x - gStartPos.x
+        const dy = pos.y - gStartPos.y
+        moveTxtFrame(dx, dy)
+        gStartPos = pos
+    }
+    else if (gMeme.dragObject === 'imoji') {
+        if (!imojis[imojIdx].isDrag) return
+        const pos = getEvPos(ev)
+        const dx = pos.x - gStartPos.x
+        const dy = pos.y - gStartPos.y
+        moveImoji(dx, dy)
+        gStartPos = pos
+    }
 
-    const pos = getEvPos(ev)
-    const dx = pos.x - gStartPos.x
-    const dy = pos.y - gStartPos.y
 
-    moveTxtFrame(dx, dy)
-    gStartPos = pos
     renderMeme()
 }
 
 function onUp() {
-    setTxtFrameDrag(false)
+    if (gMeme.dragObject === 'txt') {
+        gMeme.dragObject = ''
+        setTxtFrameDrag(false)
+    }
+
+    else if (gMeme.dragObject === 'imoji' && gMeme.imojis.length >= 0) {
+        gMeme.dragObject = ''
+        setImojiDrag(false)
+    }
+
     document.body.style.cursor = 'default'
 }
 

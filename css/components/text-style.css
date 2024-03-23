@@ -5,7 +5,7 @@
     min-width: 300px;
     background-color: #19A59F;
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -27,4 +27,19 @@
     background: #EBEEF3;
     border: none;
     border-radius: 15px;
+}
+
+.imojis-container {
+    grid-column: 1 / -1;
+    gap: 20px;
+    justify-self: center;
+    background: #FFFFFF;
+    padding: 0.5rem 2rem;
+    border-radius: 15px;
+    font-size: 2rem;
+}
+
+.imojis-container .imoji {
+    width: 30px;
+    cursor: pointer;
 }

@@ -7,8 +7,10 @@ function getMeme() {
     return {
         selectedImgId: 1,
         selectedLineIdx: 0,
+        selectedImojiIdx: 0,
         url: '',
         isDownload: false,
+        dragObject: '',
         lines: [
             {
                 txt: 'Insert text',
@@ -22,7 +24,8 @@ function getMeme() {
                 txtHeight: 0,
                 font: 'Ariel',
             },
-        ]
+        ],
+        imojis: []
     }
 }
 
@@ -44,11 +47,31 @@ function addLine() {
     renderMeme()
 }
 
+function addImoji(imojiLink) {
+    const { imojis } = gMeme
+    imojis.push({
+        url: imojiLink,
+        size: 40,
+        currPosX: 20,
+        currPosY: 20,
+        isDrag: false,
+        imojiWidth: 0,
+        imojiHeight: 0
+    })
+    gMeme.selectedImojiIdx = (gMeme.imojis.length - 1)
+    renderMeme()
+}
+
 function switchLine(type, idx) {
     if (type === 'clickBtn') {
         if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
         else gMeme.selectedLineIdx += 1
     } else gMeme.selectedLineIdx = idx
+}
+
+function switchImoji(idx) {
+    console.log('gMeme.selectedImojiIdx:', gMeme.selectedImojiIdx)
+    gMeme.selectedImojiIdx = idx
 }
 
 function setImg(imgId) {
@@ -85,15 +108,21 @@ function downloadImg() {
     flashMsg('download started...')
 }
 
-
 function setTxtFrameDrag(isDrag) {
     var { lines } = gMeme
     lines[gMeme.selectedLineIdx].isDrag = isDrag
 }
 
+function setImojiDrag(isDrag) {
+    const { selectedImojiIdx: idx } = gMeme
+    const { imojis } = gMeme
+    imojis[idx].isDrag = isDrag
+}
+
 function isTxtFrameClicked(clickedPos) {
     const { lines } = gMeme
     const { selectedLineIdx: idx } = gMeme
+    gMeme.dragObject = 'txt'
     gMeme.lines.forEach((lines, idx) => {
         if ((clickedPos.x >= lines.currPosX) &&
             (clickedPos.x <= (lines.txtWidth + lines.currPosX)) &&
@@ -103,11 +132,33 @@ function isTxtFrameClicked(clickedPos) {
             onSwitchLine('mouseClick', idx)
         }
     });
-    console.log('lines[idx]:', lines[idx])
-    return ((clickedPos.x >= lines[idx].currPosX) &&
+    return (
+        (clickedPos.x >= lines[idx].currPosX) &&
         (clickedPos.x <= (lines[idx].txtWidth + lines[idx].currPosX)) &&
         (clickedPos.y >= lines[idx].currPosY) &&
-        (clickedPos.y <= (lines[idx].txtHeight + lines[idx].currPosY)))
+        (clickedPos.y <= (lines[idx].txtHeight + lines[idx].currPosY))
+    )
+}
+
+function isImojiClicked(clickedPos) {
+
+    const { imojis } = gMeme
+    const { selectedImojiIdx: idx } = gMeme
+    gMeme.dragObject = 'imoji'
+    if (imojis.length <= 0) return
+    imojis.forEach((imoji, idx) => {
+        if ((clickedPos.x >= imoji.currPosX) &&
+            (clickedPos.x <= (imoji.currPosX + imoji.size)) &&
+            (clickedPos.y >= imoji.currPosY) &&
+            (clickedPos.y <= (imoji.currPosY + imoji.size)))
+            switchImoji(idx)
+    })
+    return (
+        (clickedPos.x >= imojis[idx].currPosX) &&
+        (clickedPos.x <= (imojis[idx].currPosX + imojis[idx].size)) &&
+        (clickedPos.y >= imojis[idx].currPosY) &&
+        (clickedPos.y <= (imojis[idx].currPosY + imojis[idx].size))
+    )
 }
 
 function moveTxtFrame(dx, dy) {
@@ -115,6 +166,14 @@ function moveTxtFrame(dx, dy) {
     const { selectedLineIdx: idx } = gMeme
     lines[idx].currPosX += dx
     lines[idx].currPosY += dy
+}
+
+function moveImoji(dx, dy) {
+
+    const { imojis } = gMeme
+    const { selectedImojiIdx: idx } = gMeme
+    imojis[idx].currPosX += dx
+    imojis[idx].currPosY += dy
 }
 
 function fontChange() {

@@ -16,7 +16,6 @@ function renderImg() {
 function getImgFromSaved(evt) {
     const dataStorage = loadFromStorage('canvas')
     const currIMG = dataStorage.find(img => img.id === evt.currentTarget.myParam)
-    console.log('currIMG:', currIMG)
     gMeme = currIMG
     switchDisplay('editor')
     renderMeme()
