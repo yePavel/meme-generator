@@ -103,7 +103,7 @@ function isTxtFrameClicked(clickedPos) {
             onSwitchLine('mouseClick', idx)
         }
     });
-    console.log('lines[idx]:', lines[idx])
+
     return ((clickedPos.x >= lines[idx].currPosX) &&
         (clickedPos.x <= (lines[idx].txtWidth + lines[idx].currPosX)) &&
         (clickedPos.y >= lines[idx].currPosY) &&
